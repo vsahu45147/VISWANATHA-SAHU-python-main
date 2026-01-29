@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3d197ee6520ff37cbee7cfc2d96d80f3 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-search@2.9.7/dist/leaflet-search.min.css"/>
+</head>
+<body>
+    
+    
+<script>
+    var marker_data = [{"name": "Viswa", "lat": 28.6139, "lng": 77.209}, {"name": "Nishant", "lat": 19.076, "lng": 72.8777}, {"name": "Swati", "lat": 12.9716, "lng": 77.5946}, {"name": "Akankhya", "lat": 13.0827, "lng": 80.2707}];
+
+    // Function to open popup by name
+    function openPopupByName(name) {
+        for (var i=0; i<marker_data.length; i++) {
+            if(marker_data[i].name === name) {
+                var lat = marker_data[i].lat;
+                var lng = marker_data[i].lng;
+                map.setView([lat, lng], 10);
+                var popup = L.popup()
+                    .setLatLng([lat, lng])
+                    .setContent(name)
+                    .openOn(map);
+                break;
+            }
+        }
+    }
+
+    // Wait until the map is ready
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get search suggestions container
+        var searchInputs = document.querySelectorAll('.leaflet-control-search input');
+        searchInputs.forEach(function(searchBox) {
+            searchBox.addEventListener('input', function(e) {
+                var name = e.target.value;
+                // Check if input matches any marker
+                marker_data.forEach(function(marker) {
+                    if(marker.name.toLowerCase() === name.toLowerCase()) {
+                        openPopupByName(marker.name);
+                    }
+                });
+            });
+        });
+    });
+</script>
+    
+            <div class="folium-map" id="map_3d197ee6520ff37cbee7cfc2d96d80f3" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3d197ee6520ff37cbee7cfc2d96d80f3 = L.map(
+                "map_3d197ee6520ff37cbee7cfc2d96d80f3",
+                {
+                    center: [20.0, 77.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f2603c206148c17796499040f543e887 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_f2603c206148c17796499040f543e887.addTo(map_3d197ee6520ff37cbee7cfc2d96d80f3);
+        
+    
+            var feature_group_802f7731494ae8c0fefc2d1bfd45021a = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_04c1c2f969a3033961cefa3ed0b9ceb2 = L.marker(
+                [28.6139, 77.209],
+                {
+}
+            ).addTo(feature_group_802f7731494ae8c0fefc2d1bfd45021a);
+        
+    
+        var popup_92b03c4ddecf8bd64471586ef96c3170 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_33d353cf078b457a2d5e3b3973fbcca9 = $(`<div id="html_33d353cf078b457a2d5e3b3973fbcca9" style="width: 100.0%; height: 100.0%;">Viswa</div>`)[0];
+                popup_92b03c4ddecf8bd64471586ef96c3170.setContent(html_33d353cf078b457a2d5e3b3973fbcca9);
+            
+        
+
+        marker_04c1c2f969a3033961cefa3ed0b9ceb2.bindPopup(popup_92b03c4ddecf8bd64471586ef96c3170)
+        ;
+
+        
+    
+    
+            marker_04c1c2f969a3033961cefa3ed0b9ceb2.bindTooltip(
+                `<div>
+                     Viswa
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1303b22cc5c299ecb6b7f32b97211aef = L.marker(
+                [19.076, 72.8777],
+                {
+}
+            ).addTo(feature_group_802f7731494ae8c0fefc2d1bfd45021a);
+        
+    
+        var popup_3adab5ae6d253baed3da4e55e2aa3370 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_55b7ee10a694609f95e94e75990b5dc0 = $(`<div id="html_55b7ee10a694609f95e94e75990b5dc0" style="width: 100.0%; height: 100.0%;">Nishant</div>`)[0];
+                popup_3adab5ae6d253baed3da4e55e2aa3370.setContent(html_55b7ee10a694609f95e94e75990b5dc0);
+            
+        
+
+        marker_1303b22cc5c299ecb6b7f32b97211aef.bindPopup(popup_3adab5ae6d253baed3da4e55e2aa3370)
+        ;
+
+        
+    
+    
+            marker_1303b22cc5c299ecb6b7f32b97211aef.bindTooltip(
+                `<div>
+                     Nishant
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a9a0c2079a35d17b1711d244703e4125 = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(feature_group_802f7731494ae8c0fefc2d1bfd45021a);
+        
+    
+        var popup_78364067a2824f43710aa4b8067e22ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_be76c04db5e92cf4e30804284bcf9d2d = $(`<div id="html_be76c04db5e92cf4e30804284bcf9d2d" style="width: 100.0%; height: 100.0%;">Swati</div>`)[0];
+                popup_78364067a2824f43710aa4b8067e22ee.setContent(html_be76c04db5e92cf4e30804284bcf9d2d);
+            
+        
+
+        marker_a9a0c2079a35d17b1711d244703e4125.bindPopup(popup_78364067a2824f43710aa4b8067e22ee)
+        ;
+
+        
+    
+    
+            marker_a9a0c2079a35d17b1711d244703e4125.bindTooltip(
+                `<div>
+                     Swati
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_1c434626ebae87376535e74df1a8eca9 = L.marker(
+                [13.0827, 80.2707],
+                {
+}
+            ).addTo(feature_group_802f7731494ae8c0fefc2d1bfd45021a);
+        
+    
+        var popup_70d20b249270f85615162745fc01618c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_176451e01d3e26e8ff3c89b0bae30621 = $(`<div id="html_176451e01d3e26e8ff3c89b0bae30621" style="width: 100.0%; height: 100.0%;">Akankhya</div>`)[0];
+                popup_70d20b249270f85615162745fc01618c.setContent(html_176451e01d3e26e8ff3c89b0bae30621);
+            
+        
+
+        marker_1c434626ebae87376535e74df1a8eca9.bindPopup(popup_70d20b249270f85615162745fc01618c)
+        ;
+
+        
+    
+    
+            marker_1c434626ebae87376535e74df1a8eca9.bindTooltip(
+                `<div>
+                     Akankhya
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            feature_group_802f7731494ae8c0fefc2d1bfd45021a.addTo(map_3d197ee6520ff37cbee7cfc2d96d80f3);
+        
+    
+            var feature_group_802f7731494ae8c0fefc2d1bfd45021asearchControl = new L.Control.Search({
+                layer: feature_group_802f7731494ae8c0fefc2d1bfd45021a,
+                
+                propertyName: 'tooltip',
+                
+                collapsed: false,
+                textPlaceholder: 'Search for a person',
+                position:'topleft',
+            
+                initial: false,
+                
+                hideMarkerOnCollapse: true
+            
+                });
+                feature_group_802f7731494ae8c0fefc2d1bfd45021asearchControl.on('search:locationfound', function(e) {
+                    feature_group_802f7731494ae8c0fefc2d1bfd45021a.setStyle(function(feature){
+                        return feature.properties.style
+                    })
+                    
+                    if(e.layer._popup)
+                        e.layer.openPopup();
+                })
+                feature_group_802f7731494ae8c0fefc2d1bfd45021asearchControl.on('search:collapsed', function(e) {
+                        feature_group_802f7731494ae8c0fefc2d1bfd45021a.setStyle(function(feature){
+                            return feature.properties.style
+                    });
+                });
+            map_3d197ee6520ff37cbee7cfc2d96d80f3.addControl( feature_group_802f7731494ae8c0fefc2d1bfd45021asearchControl );
+
+        
+</script>
+</html>
